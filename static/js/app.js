@@ -35,7 +35,6 @@ function updateFilters() {
     var modValue = modFilter.property("value");
     // 4c. Save the id of the filter that was changed as a variable.
     var modID = modFilter.property("id");
-  
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
     if(modValue) {
@@ -48,6 +47,8 @@ function updateFilters() {
     // 6. Call function to apply all filters and rebuild the table
     filterTable();
 
+    console.log(modValue, modID, filters);
+
   }
   
   // 7. Use this function to filter the table when data is entered.
@@ -59,9 +60,9 @@ function updateFilters() {
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
     Object.keys(filters).forEach((key) => {
-        let inputValue = d3.select("#"+key).property("value");
+        var inputValue = d3.select("#"+key).property("value");
         if (inputValue){
-        fiterData = filterData.filter(row => row[key] === inputValue)};
+        filterData = filterData.filter(row => row[key] === inputValue)};
     });
   
     // 10. Finally, rebuild the table using the filtered data
