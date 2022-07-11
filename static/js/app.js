@@ -10,9 +10,9 @@ function listLoop(userList) {
     }
  };
 
- function buildTable(data) {
+function buildTable(data) {
     tbody.html("");
-    data.foreach((dataRow) => {
+    data.forEach((dataRow) => {
         let row = tbody.append("tr");
         Object.values(dataRow).forEach((val) => {
             let cell = row.append("td");
